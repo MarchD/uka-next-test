@@ -1,6 +1,8 @@
 import {getHomePageData, getNews} from "@/lib/strapi";
 import Link from "next/link";
 import Image from "next/image";
+import StatsBlock from "@/app/components/StatsBlock";
+import WhatWeDo from "@/app/components/WhatWeDo";
 
 export default async function Home() {
   const home = await getHomePageData();
@@ -20,7 +22,7 @@ export default async function Home() {
               {/* Dark overlay */}
               <div className="absolute inset-0 bg-black/50 z-0"/>
 
-              <div className="relative z-10 px-4">
+              <div className="relative z-10 px-4 container" >
                   <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
                       {home.title}
                   </h1>
@@ -30,7 +32,7 @@ export default async function Home() {
               </div>
           </section>
 
-          <section className="px-6 py-10 space-y-8 max-w-4xl mx-auto">
+          <section className=" px-6 py-10 space-y-8 container mx-auto">
               <h2 className="text-h2 text-center">News</h2>
 
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 py-10">
@@ -69,6 +71,8 @@ export default async function Home() {
                   })}
               </div>
           </section>
+          <StatsBlock />
+          <WhatWeDo />
       </main>
   );
 }
